@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 2 – Menghitung Luas Bangun Datar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f0f9ff; /* Warna biru pastel sangat muda (sky-50) */
+            color: #334155;
+            background-image: radial-gradient(#bae6fd 0.8px, transparent 0.8px);
+            background-size: 24px 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Fredoka One', cursive;
+        }
+        .card {
+            background: white;
+            border-radius: 2.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+            margin-bottom: 2.5rem;
+            border: 3px solid #e0f2fe;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(14, 165, 233, 0.1);
+        }
+        .input-fun {
+            border: 3px solid #f1f5f9;
+            border-radius: 1.25rem;
+            padding: 1rem;
+            width: 100%;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            background-color: #fff;
+        }
+        .input-fun:focus {
+            border-color: #38bdf8;
+            outline: none;
+            background-color: #f0f9ff;
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
+        }
+        .grid-unit {
+            background-image: 
+                linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+                linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+            background-size: 30px 30px;
+            border: 2px solid #bae6fd;
+        }
+        .ai-chat-bubble {
+            background: #f0fdfa;
+            border-radius: 2rem 2rem 2rem 0.5rem;
+            padding: 1.5rem;
+            border: 2px solid #ccfbf1;
+            position: relative;
+        }
+        .step-number {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            color: white;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="pb-20">
+
+    <!-- Header Section -->
+    <header class="bg-white border-b-8 border-blue-100 pt-12 pb-10 px-6 text-center shadow-sm">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-block bg-blue-100 text-blue-600 px-4 py-1 rounded-full font-bold mb-4">🏠 Modul Digital • Bagian 2</div>
+            <h1 class="text-4xl md:text-5xl text-blue-500 mb-2">📐 Pertemuan 2 – Menghitung Luas Bangun Datar</h1>
+            <p class="text-xl md:text-2xl text-blue-400 font-semibold mb-8 italic">“Belajar luas persegi dan persegi panjang untuk merancang ruang kelas impian”</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-blue-50 p-6 rounded-3xl border-2 border-blue-100">
+                <div class="p-2">
+                    <p class="text-xs text-blue-400 uppercase font-bold tracking-wider">Mata Pelajaran</p>
+                    <p class="font-bold text-blue-700">Matematika</p>
+                </div>
+                <div class="p-2 border-l border-blue-200">
+                    <p class="text-xs text-blue-400 uppercase font-bold tracking-wider">Materi</p>
+                    <p class="font-bold text-blue-700">Luas Bangun Datar</p>
+                </div>
+                <div class="p-2 border-l border-blue-200">
+                    <p class="text-xs text-blue-400 uppercase font-bold tracking-wider">Kelas / Sem</p>
+                    <p class="font-bold text-blue-700">V / Genap</p>
+                </div>
+                <div class="p-2 border-l border-blue-200">
+                    <p class="text-xs text-blue-400 uppercase font-bold tracking-wider">Waktu</p>
+                    <p class="font-bold text-blue-700">2 × 35 Menit</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 mt-12">
+
+        <!-- A. TUJUAN PEMBELAJARAN -->
+        <section class="card border-blue-200">
+            <h2 class="text-2xl text-blue-500 mb-6 flex items-center gap-3">⭐ Tujuan Belajar Hari Ini</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl">☑</span>
+                    <span class="text-gray-700 font-medium">Menjelaskan apa itu luas dengan bahasamu</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl">☑</span>
+                    <span class="text-gray-700 font-medium">Menghitung luas persegi & persegi panjang</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl">☑</span>
+                    <span class="text-gray-700 font-medium">Bertanya pada AI jika kesulitan</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl">☑</span>
+                    <span class="text-gray-700 font-medium">Menggunakan luas untuk desain kelas</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100 col-span-1 md:col-span-2 justify-center">
+                    <span class="text-2xl">☑</span>
+                    <span class="text-gray-700 font-medium">Bekerja sama dalam kelompok dengan kompak!</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- B. MENGINGAT KEMBALI -->
+        <section class="card border-indigo-200">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="bg-indigo-100 p-3 rounded-2xl text-3xl">🔄</div>
+                <h2 class="text-2xl text-indigo-600">Ayo Mengingat Kembali!</h2>
+            </div>
+            <div class="bg-indigo-50 p-6 rounded-3xl mb-8 border border-indigo-100">
+                <p class="font-bold text-indigo-700 mb-2">Ingatkah kamu? Kemarin kita belajar:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 ml-2">
+                    <li>Bentuk persegi dan persegi panjang.</li>
+                    <li>Ciri-ciri bangun datar (sisi dan sudut).</li>
+                    <li>Berkenalan dengan AI teman belajar.</li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <div>
+                    <label class="block font-bold text-gray-700 mb-2">1️⃣ Apa perbedaan persegi dan persegi panjang?</label>
+                    <textarea class="input-fun border-indigo-100" rows="2" placeholder="Jawabanmu..."></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-gray-700 mb-2">2️⃣ Sebutkan benda di kelas yang berbentuk persegi atau persegi panjang!</label>
+                    <textarea class="input-fun border-indigo-100" rows="2" placeholder="Sebutkan bendanya..."></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- C. KEGIATAN INTI 1 -->
+        <section class="card border-cyan-200">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-cyan-100 p-3 rounded-2xl text-3xl">📏</div>
+                <h2 class="text-2xl text-cyan-600">Apa Itu Luas?</h2>
+            </div>
+            
+            <div class="bg-cyan-50 p-8 rounded-[2.5rem] border-2 border-cyan-100 mb-8 flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1">
+                    <p class="text-lg text-cyan-900 leading-relaxed font-semibold">
+                        “Luas adalah ukuran seberapa besar <strong>permukaan</strong> suatu bangun datar. <br><br>
+                        Bayangkan seperti menutupi seluruh lantai kelas dengan ubin atau karpet. Berapa banyak ubin yang kita butuhkan?”
+                    </p>
+                </div>
+                <div class="w-full md:w-64">
+                    <!-- Ilustrasi Kotak Satuan -->
+                    <div class="grid-unit w-full aspect-square bg-white rounded-lg flex flex-wrap p-1 shadow-inner">
+                        <div class="w-[30px] h-[30px] bg-cyan-200 border border-cyan-300 rounded-sm m-[1px]"></div>
+                        <div class="w-[30px] h-[30px] bg-cyan-200 border border-cyan-300 rounded-sm m-[1px]"></div>
+                        <div class="w-[30px] h-[30px] bg-cyan-200 border border-cyan-300 rounded-sm m-[1px]"></div>
+                        <div class="w-[30px] h-[30px] bg-cyan-200 border border-cyan-300 rounded-sm m-[1px]"></div>
+                        <div class="w-[30px] h-[30px] bg-cyan-200 border border-cyan-300 rounded-sm m-[1px]"></div>
+                        <div class="w-[30px] h-[30px] bg-cyan-200 border border-cyan-300 rounded-sm m-[1px]"></div>
+                        <div class="w-[30px] h-[30px] bg-cyan-200 border border-cyan-300 rounded-sm m-[1px]"></div>
+                        <div class="w-[30px] h-[30px] bg-cyan-200 border border-cyan-300 rounded-sm m-[1px]"></div>
+                        <div class="w-[30px] h-[30px] bg-cyan-200 border border-cyan-300 rounded-sm m-[1px]"></div>
+                    </div>
+                    <p class="text-center text-xs text-cyan-400 mt-2 font-bold uppercase">Contoh Kotak Satuan</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-3xl border-2 border-dashed border-cyan-200">
+                <h4 class="text-cyan-600 mb-4 flex items-center gap-2">🗣️ Diskusi Kelompok:</h4>
+                <p class="font-bold text-gray-700 mb-3">“Mengapa kita perlu mengetahui luas ruang kelas?”</p>
+                <textarea class="input-fun border-cyan-100" rows="3" placeholder="Tulis alasan kelompokmu di sini..."></textarea>
+            </div>
+        </section>
+
+        <!-- D. KEGIATAN INTI 2 -->
+        <section class="card border-emerald-200">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-emerald-100 p-3 rounded-2xl text-3xl">🤖</div>
+                <h2 class="text-2xl text-emerald-600">Belajar Menghitung Luas Bersama AI</h2>
+            </div>
+
+            <p class="text-lg mb-8">AI bisa memberitahu kita cara menghitung luas dengan sangat mudah!</p>
+
+            <div class="flex gap-4 mb-10">
+                <div class="text-5xl">🤖</div>
+                <div class="ai-chat-bubble flex-1 shadow-sm border-emerald-100 bg-emerald-50/50">
+                    <p class="text-sm font-bold text-emerald-600 mb-2">Tanya ke AI temanmu:</p>
+                    <p class="text-lg italic text-emerald-800">“Bagaimana cara menghitung luas persegi dan persegi panjang? Jelaskan dengan langkah sederhana untuk siswa kelas 5.”</p>
+                </div>
+            </div>
+
+            <div class="space-y-8 bg-emerald-50 p-8 rounded-[3rem] border border-emerald-100">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <label class="font-bold text-emerald-700 flex items-center gap-2">
+                            <span class="text-2xl">🟦</span> Rumus Luas Persegi:
+                        </label>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xl font-bold">L =</span>
+                            <input type="text" class="input-fun border-emerald-100" placeholder="s x ...">
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="font-bold text-emerald-700 flex items-center gap-2">
+                            <span class="text-2xl">🟧</span> Rumus Luas Persegi Panjang:
+                        </label>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xl font-bold">L =</span>
+                            <input type="text" class="input-fun border-emerald-100" placeholder="p x ...">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-emerald-700 mb-2">Jelaskan dengan kata-katamu sendiri cara menghitung luas:</label>
+                    <textarea class="input-fun border-emerald-100" rows="4" placeholder="Misal: Kalikan panjang dengan lebarnya..."></textarea>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-sm text-emerald-400 italic">💡 Jangan lupa diskusikan jawabanmu dengan teman dan guru!</p>
+        </section>
+
+        <!-- E. KEGIATAN INTI 3 -->
+        <section class="card border-sky-200">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-sky-100 p-3 rounded-2xl text-3xl">🏫</div>
+                <h2 class="text-2xl text-sky-600">Menghitung Luas Ruang Kelas Impian</h2>
+            </div>
+            
+            <p class="text-lg mb-8 italic text-sky-800">“Sekarang, mari terapkan ilmumu untuk proyek kelompok!”</p>
+
+            <div class="bg-sky-50 p-8 rounded-3xl border-2 border-sky-100 mb-8">
+                <h4 class="text-sky-700 mb-6 font-bold flex items-center gap-2">📝 Ukuran Lantai Kelasmu:</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-2xl border border-sky-100 shadow-sm">
+                        <span class="font-bold text-gray-500">Panjang:</span>
+                        <input type="number" class="w-full border-b-2 border-sky-200 focus:outline-none focus:border-sky-500 text-center font-bold text-xl" placeholder="0">
+                        <span class="font-bold text-gray-400">Meter</span>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-2xl border border-sky-100 shadow-sm">
+                        <span class="font-bold text-gray-500">Lebar:</span>
+                        <input type="number" class="w-full border-b-2 border-sky-200 focus:outline-none focus:border-sky-500 text-center font-bold text-xl" placeholder="0">
+                        <span class="font-bold text-gray-400">Meter</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-3xl border-4 border-sky-200 text-center shadow-md">
+                    <p class="text-sky-400 font-bold mb-2 uppercase tracking-widest text-sm">Hitung Luas Lantai:</p>
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="text-2xl font-bold text-sky-600">Luas =</span>
+                        <input type="text" class="w-32 py-2 border-b-4 border-sky-500 text-center text-3xl font-bold focus:outline-none text-sky-700" placeholder="...">
+                        <span class="text-2xl font-bold text-sky-600">m²</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-[2rem] border-2 border-dashed border-sky-200">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-2xl">🔍</span>
+                    <h4 class="text-sky-600 font-bold">Cek dengan Generative AI</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-4 italic">“Gunakan AI untuk mengecek apakah langkah hitunganmu sudah benar.”</p>
+                <textarea class="input-fun border-sky-100 bg-sky-50/10" rows="3" placeholder="Catatan hasil pengecekan AI..."></textarea>
+            </div>
+        </section>
+
+        <!-- F. PENUTUP -->
+        <section class="card border-blue-200">
+            <h2 class="text-2xl text-blue-600 mb-8 flex items-center gap-3">🧠 Refleksi Belajar Hari Ini</h2>
+            <div class="space-y-6">
+                <div>
+                    <label class="block font-bold text-blue-700 mb-2">Apa yang kamu pahami tentang luas hari ini?</label>
+                    <textarea class="input-fun border-blue-100" rows="2"></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-blue-700 mb-2">Apakah Generative AI membantumu menghitung luas? Mengapa?</label>
+                    <textarea class="input-fun border-blue-100" rows="2"></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-blue-700 mb-2">Bagian mana yang masih sulit kamu pahami?</label>
+                    <textarea class="input-fun border-blue-100" rows="2"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- G. PENILAIAN DIRI -->
+        <section class="card border-sky-200 shadow-inner">
+            <h2 class="text-2xl text-sky-600 mb-6">✅ Penilaian Diri</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="flex items-center gap-4 p-5 bg-sky-50 rounded-3xl border-2 border-sky-100 cursor-pointer hover:bg-sky-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-sky-500 border-2 border-sky-300">
+                    <span class="font-bold text-sky-800 uppercase text-xs">Saya paham cara menghitung luas</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-sky-50 rounded-3xl border-2 border-sky-100 cursor-pointer hover:bg-sky-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-sky-500 border-2 border-sky-300">
+                    <span class="font-bold text-sky-800 uppercase text-xs">Saya bekerja sama dengan baik</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-sky-50 rounded-3xl border-2 border-sky-100 cursor-pointer hover:bg-sky-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-sky-500 border-2 border-sky-300">
+                    <span class="font-bold text-sky-800 uppercase text-xs">Saya pakai AI dengan bijak</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-sky-50 rounded-3xl border-2 border-sky-100 cursor-pointer hover:bg-sky-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-sky-500 border-2 border-sky-300">
+                    <span class="font-bold text-sky-800 uppercase text-xs">Saya berani bertanya jika bingung</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Submit Button -->
+        <div class="text-center py-10">
+            <button onclick="window.print()" class="bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white font-bold py-5 px-16 rounded-[2rem] text-2xl shadow-xl transition-all transform hover:scale-105 active:scale-95">
+                🌟 Simpan Hasil Belajarku
+            </button>
+            <p class="mt-4 text-gray-400 font-medium italic">Hebat! Kamu sudah menyelesaikan Pertemuan 2!</p>
+        </div>
+
+    </main>
+
+    <!-- Navigation Footer -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4">
+        <button class="bg-white/90 backdrop-blur-md border border-gray-200 px-6 py-2 rounded-full shadow-lg text-sm font-bold text-gray-500 hover:text-blue-500">
+            ⬅️ Kembali ke Menu
+        </button>
+    </div>
+
+</body>
+</html>
