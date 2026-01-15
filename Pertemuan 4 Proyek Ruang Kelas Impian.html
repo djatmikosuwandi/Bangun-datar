@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 4 – Proyek Ruang Kelas Impian</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f5f3ff; /* Ungu pastel sangat muda */
+            color: #334155;
+            background-image: radial-gradient(#ddd6fe 0.8px, transparent 0.8px);
+            background-size: 24px 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Fredoka One', cursive;
+        }
+        .card {
+            background: white;
+            border-radius: 2.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+            margin-bottom: 2.5rem;
+            border: 3px solid #ede9fe;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.1);
+        }
+        .input-fun {
+            border: 3px solid #f1f5f9;
+            border-radius: 1.25rem;
+            padding: 1rem;
+            width: 100%;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            background-color: #fff;
+        }
+        .input-fun:focus {
+            border-color: #a78bfa;
+            outline: none;
+            background-color: #f5f3ff;
+            box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
+        }
+        .canvas-area {
+            background-color: #f8fafc;
+            border: 4px dashed #cbd5e1;
+            border-radius: 2rem;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: crosshair;
+        }
+        .ai-chat-bubble {
+            background: #f0fdf4;
+            border-radius: 2rem 2rem 2rem 0.5rem;
+            padding: 1.5rem;
+            border: 2px solid #dcfce7;
+            position: relative;
+        }
+        .btn-toggle {
+            transition: all 0.2s;
+            border: 3px solid transparent;
+        }
+        .btn-toggle.active {
+            border-color: #8b5cf6;
+            background-color: #ede9fe;
+            color: #5b21b6;
+        }
+    </style>
+</head>
+<body class="pb-20">
+
+    <!-- Header Section -->
+    <header class="bg-white border-b-8 border-purple-100 pt-12 pb-10 px-6 text-center shadow-sm">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-block bg-purple-100 text-purple-600 px-4 py-1 rounded-full font-bold mb-4">🏆 Modul Digital • Bagian 4 (Puncak Proyek)</div>
+            <h1 class="text-4xl md:text-5xl text-purple-500 mb-2">🏫 Pertemuan 4 – Proyek Ruang Kelas Impian</h1>
+            <p class="text-xl md:text-2xl text-purple-400 font-semibold mb-8 italic">“Menjelaskan bangun datar, luas, dan keliling dengan percaya diri”</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-purple-50 p-6 rounded-3xl border-2 border-purple-100">
+                <div class="p-2">
+                    <p class="text-xs text-purple-400 uppercase font-bold tracking-wider">Mata Pelajaran</p>
+                    <p class="font-bold text-purple-700">Matematika</p>
+                </div>
+                <div class="p-2 border-l border-purple-200">
+                    <p class="text-xs text-purple-400 uppercase font-bold tracking-wider">Kelas / Sem</p>
+                    <p class="font-bold text-purple-700">V / Genap</p>
+                </div>
+                <div class="p-2 border-l border-purple-200">
+                    <p class="text-xs text-purple-400 uppercase font-bold tracking-wider">Materi</p>
+                    <p class="font-bold text-purple-700">Bangun Datar & Proyek</p>
+                </div>
+                <div class="p-2 border-l border-purple-200">
+                    <p class="text-xs text-purple-400 uppercase font-bold tracking-wider">Waktu</p>
+                    <p class="font-bold text-purple-700">2 × 35 Menit</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 mt-12">
+
+        <!-- A. TUJUAN PEMBELAJARAN -->
+        <section class="card border-blue-200">
+            <h2 class="text-2xl text-blue-500 mb-6 flex items-center gap-3">⭐ Tujuan Belajar Hari Ini</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl">☑</span>
+                    <span class="text-gray-700 font-medium text-sm">Menyajikan proyek ruang kelas impian dengan percaya diri</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl">☑</span>
+                    <span class="text-gray-700 font-medium text-sm">Menjelaskan bangun datar, luas, dan keliling dengan bahasamu</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl">☑</span>
+                    <span class="text-gray-700 font-medium text-sm">Memberi dan menerima tanggapan dengan sopan</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl">☑</span>
+                    <span class="text-gray-700 font-medium text-sm">Merefleksikan proses belajar dengan bantuan Generative AI</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100 col-span-1 md:col-span-2 justify-center">
+                    <span class="text-2xl">☑</span>
+                    <span class="text-gray-700 font-medium text-sm">Menyimpulkan manfaat Generative AI dalam belajar</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- B. PROSES MEMBUAT DESAIN PROYEK -->
+        <section class="card border-purple-200">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-purple-100 p-3 rounded-2xl text-3xl">✏️</div>
+                <h2 class="text-2xl text-purple-600">Menyelesaikan Desain Ruang Kelas Impian</h2>
+            </div>
+
+            <!-- Langkah 1 -->
+            <div class="mb-10">
+                <h4 class="text-purple-500 font-bold mb-4 flex items-center gap-2">🟡 Langkah 1 – Menentukan Bentuk Ruang Kelas</h4>
+                <div class="flex gap-4 mb-4">
+                    <button class="btn-toggle flex-1 p-6 bg-white border-2 border-gray-100 rounded-3xl hover:bg-purple-50 active" onclick="this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active')">
+                        <span class="text-3xl block mb-2">⬜</span>
+                        <span class="font-bold">Persegi</span>
+                    </button>
+                    <button class="btn-toggle flex-1 p-6 bg-white border-2 border-gray-100 rounded-3xl hover:bg-purple-50" onclick="this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active')">
+                        <span class="text-3xl block mb-2">▭</span>
+                        <span class="font-bold">Persegi Panjang</span>
+                    </button>
+                </div>
+                <label class="block text-sm font-bold text-gray-500 mb-2">Alasan memilih bentuk tersebut:</label>
+                <textarea class="input-fun border-purple-100" rows="2" placeholder="Karena..."></textarea>
+            </div>
+
+            <!-- Langkah 2 & 3 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-blue-50 p-6 rounded-[2rem] border border-blue-100">
+                    <h4 class="text-blue-600 font-bold mb-4 flex items-center gap-2">🟡 Langkah 2 – Ukuran</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-20 text-sm font-bold text-blue-400">Panjang</span>
+                            <input type="number" class="input-fun py-2" placeholder="0">
+                            <span class="text-sm font-bold text-blue-400">m</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-20 text-sm font-bold text-blue-400">Lebar</span>
+                            <input type="number" class="input-fun py-2" placeholder="0">
+                            <span class="text-sm font-bold text-blue-400">m</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-green-50 p-6 rounded-[2rem] border border-green-100">
+                    <h4 class="text-green-600 font-bold mb-4 flex items-center gap-2">🟡 Langkah 3 – Hitungan</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">📐</span>
+                            <span class="font-bold text-green-700">L =</span>
+                            <input type="text" class="input-fun py-2" placeholder="...">
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">📏</span>
+                            <span class="font-bold text-green-700">K =</span>
+                            <input type="text" class="input-fun py-2" placeholder="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Langkah 4 -->
+            <div class="mb-10">
+                <h4 class="text-purple-500 font-bold mb-4 flex items-center gap-2">🟡 Langkah 4 – Membuat Sketsa Desain</h4>
+                <div class="canvas-area group">
+                    <div class="text-center text-gray-400 group-hover:text-purple-400 transition-colors">
+                        <p class="text-4xl mb-2">🎨</p>
+                        <p class="font-bold">Area Sketsa Kreatif</p>
+                        <p class="text-xs uppercase tracking-widest mt-1">Gunakan Alat: ✏️ 🧼 📏</p>
+                    </div>
+                    <!-- Mock drawing tools UI -->
+                    <div class="absolute top-4 left-4 flex flex-col gap-2">
+                        <button class="w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center border border-gray-100">✏️</button>
+                        <button class="w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center border border-gray-100">🧼</button>
+                        <button class="w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center border border-gray-100">📏</button>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-gray-400 mt-4 italic">Tip: Kamu bisa menggambar di sini atau menempel foto sketsa fisikmu.</p>
+            </div>
+
+            <!-- Langkah 5 -->
+            <div class="bg-green-50 p-8 rounded-[2.5rem] border-2 border-dashed border-green-200">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-white p-3 rounded-2xl text-2xl shadow-sm">🤖</div>
+                    <h3 class="text-xl text-green-700">Minta Bantuan AI</h3>
+                </div>
+                
+                <div class="space-y-4 mb-6">
+                    <div class="ai-chat-bubble shadow-sm bg-white">
+                        <p class="text-sm font-bold text-green-600 mb-1">Coba tanya ke AI:</p>
+                        <p class="text-gray-700 italic">“Apakah perhitungan luas dan keliling kami sudah benar? Beri tahu kami cara menjelaskan desain ini kepada teman-teman.”</p>
+                    </div>
+                </div>
+
+                <label class="block font-bold text-green-700 mb-2 text-sm">Catatan hasil bantuan AI:</label>
+                <textarea class="input-fun border-green-100 bg-white/50" rows="3" placeholder="Tuliskan saran AI di sini..."></textarea>
+                <p class="mt-3 text-xs text-green-500 font-bold italic">“Gunakan AI untuk membantu berpikir, bukan menyalin jawaban!”</p>
+            </div>
+        </section>
+
+        <!-- C. KEGIATAN PEMBELAJARAN - PRESENTASI -->
+        <section class="card border-green-200 overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -mr-16 -mt-16 opacity-50"></div>
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-green-100 p-3 rounded-2xl text-3xl">🎤</div>
+                <h2 class="text-2xl text-green-600">Ayo Presentasi!</h2>
+            </div>
+            
+            <p class="text-lg text-gray-600 mb-8 font-medium">Presentasikan hasil proyek kelompokmu secara bergantian. Semangat!</p>
+
+            <div class="bg-green-50 p-8 rounded-3xl border border-green-100 mb-8">
+                <h4 class="text-green-700 mb-4 font-bold uppercase tracking-widest text-xs">Checklist Presentasi:</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <label class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-green-100 cursor-pointer">
+                        <input type="checkbox" class="w-6 h-6 rounded-md text-green-500">
+                        <span class="text-sm font-medium">Bentuk Ruang Kelas</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-green-100 cursor-pointer">
+                        <input type="checkbox" class="w-6 h-6 rounded-md text-green-500">
+                        <span class="text-sm font-medium">Cara Hitung Luas</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-green-100 cursor-pointer">
+                        <input type="checkbox" class="w-6 h-6 rounded-md text-green-500">
+                        <span class="text-sm font-medium">Cara Hitung Keliling</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-green-100 cursor-pointer">
+                        <input type="checkbox" class="w-6 h-6 rounded-md text-green-500">
+                        <span class="text-sm font-medium">Alasan Desain Kami</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="text-center p-6 bg-white border-4 border-dashed border-green-200 rounded-3xl">
+                <p class="text-2xl mb-2">👏</p>
+                <p class="text-green-600 font-bold italic">“Dengarkan teman dengan baik dan beri tepuk tangan yang meriah!”</p>
+            </div>
+        </section>
+
+        <!-- TANGGAPAN & DISKUSI -->
+        <section class="card border-blue-200">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-blue-100 p-3 rounded-2xl text-3xl">💬</div>
+                <h2 class="text-2xl text-blue-600">Bertanya dan Memberi Tanggapan</h2>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="flex-1 w-full">
+                    <label class="block font-bold text-blue-700 mb-2 italic">Tuliskan satu pertanyaan atau tanggapan untuk kelompok lain:</label>
+                    <textarea class="input-fun border-blue-100" rows="3" placeholder="Contoh: Mengapa kelompokmu memilih ukuran tersebut?"></textarea>
+                </div>
+                <div class="w-full md:w-32 flex flex-col items-center justify-center p-4 bg-blue-50 rounded-3xl border border-blue-100">
+                    <span class="text-4xl mb-2">😊</span>
+                    <span class="text-[10px] font-bold text-blue-400 uppercase text-center tracking-tighter">Sampaikan dengan Sopan</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFLEKSI BELAJAR -->
+        <section class="card border-purple-200 bg-gradient-to-br from-white to-purple-50/30">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-purple-100 p-3 rounded-2xl text-3xl">🧠</div>
+                <h2 class="text-2xl text-purple-600">Refleksi Belajar</h2>
+            </div>
+            
+            <div class="space-y-8">
+                <div>
+                    <label class="block font-bold text-purple-700 mb-2">1️⃣ Apa hal paling penting yang kamu pelajari tentang bangun datar?</label>
+                    <textarea class="input-fun border-purple-100 bg-white" rows="2"></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-purple-700 mb-2">2️⃣ Kapan Generative AI paling membantu dalam belajar?</label>
+                    <textarea class="input-fun border-purple-100 bg-white" rows="2"></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-purple-700 mb-2">3️⃣ Apakah kamu lebih paham luas dan keliling setelah belajar dengan proyek dan AI?</label>
+                    <textarea class="input-fun border-purple-100 bg-white" rows="2"></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-purple-700 mb-2">4️⃣ Apa saranmu agar pembelajaran berikutnya lebih baik?</label>
+                    <textarea class="input-fun border-purple-100 bg-white" rows="2"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- D. PENILAIAN DIRI -->
+        <section class="card border-indigo-200 shadow-inner">
+            <h2 class="text-2xl text-indigo-600 mb-6">✅ Penilaian Diri</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="flex items-center gap-4 p-5 bg-indigo-50 rounded-3xl border-2 border-indigo-100 cursor-pointer hover:bg-indigo-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-indigo-500 border-2 border-indigo-300">
+                    <span class="font-bold text-indigo-800 uppercase text-[10px]">Saya berani presentasi</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-indigo-50 rounded-3xl border-2 border-indigo-100 cursor-pointer hover:bg-indigo-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-indigo-500 border-2 border-indigo-300">
+                    <span class="font-bold text-indigo-800 uppercase text-[10px]">Paham Bangun Datar, Luas & Keliling</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-indigo-50 rounded-3xl border-2 border-indigo-100 cursor-pointer hover:bg-indigo-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-indigo-500 border-2 border-indigo-300">
+                    <span class="font-bold text-indigo-800 uppercase text-[10px]">Memberi tanggapan dengan sopan</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-indigo-50 rounded-3xl border-2 border-indigo-100 cursor-pointer hover:bg-indigo-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-indigo-500 border-2 border-indigo-300">
+                    <span class="font-bold text-indigo-800 uppercase text-[10px]">Gunakan AI secara bertanggung jawab</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Final Submit Button -->
+        <div class="text-center py-10">
+            <button onclick="window.print()" class="bg-gradient-to-r from-purple-400 to-indigo-600 hover:from-purple-500 hover:to-indigo-700 text-white font-bold py-6 px-20 rounded-[2.5rem] text-3xl shadow-xl transition-all transform hover:scale-105 active:scale-95 flex items-center gap-4 mx-auto">
+                🏅 Akhiri Proyek & Simpan
+            </button>
+            <p class="mt-6 text-purple-400 font-bold text-xl">Luar Biasa! Kamu adalah Arsitek Muda yang Hebat! 🎓</p>
+        </div>
+
+    </main>
+
+    <!-- Navigation Footer -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4">
+        <button class="bg-white/90 backdrop-blur-md border border-gray-200 px-6 py-2 rounded-full shadow-lg text-sm font-bold text-gray-500 hover:text-purple-500">
+            ⬅️ Kembali ke Menu Utama
+        </button>
+    </div>
+
+</body>
+</html>
