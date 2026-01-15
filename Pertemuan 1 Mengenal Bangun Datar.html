@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 1 – Mengenal Bangun Datar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f0f9ff;
+            color: #334155;
+            background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Fredoka One', cursive;
+        }
+        .card {
+            background: white;
+            border-radius: 2.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            margin-bottom: 2.5rem;
+            border: 3px solid #e2e8f0;
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .input-fun {
+            border: 3px solid #e2e8f0;
+            border-radius: 1.25rem;
+            padding: 1rem;
+            width: 100%;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        .input-fun:focus {
+            border-color: #60a5fa;
+            outline: none;
+            background-color: #f8faff;
+            box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2);
+        }
+        .ai-chat-bubble {
+            background: #eff6ff;
+            border-radius: 2rem 2rem 2rem 0.5rem;
+            padding: 1.5rem;
+            border: 2px solid #bfdbfe;
+            position: relative;
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            color: white;
+        }
+        .sketch-area {
+            background-image: 
+                linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+                linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .illustration-box {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .illustration-box:hover {
+            border-color: #a855f7;
+            background: #faf5ff;
+        }
+    </style>
+</head>
+<body class="pb-20">
+
+    <!-- Header Section -->
+    <header class="bg-white border-b-8 border-blue-100 pt-12 pb-10 px-6 text-center shadow-sm">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-block bg-blue-100 text-blue-600 px-4 py-1 rounded-full font-bold mb-4">🏠 Modul Digital</div>
+            <h1 class="text-4xl md:text-5xl text-blue-600 mb-2">📐 Pertemuan 1 – Mengenal Bangun Datar</h1>
+            <p class="text-xl md:text-2xl text-blue-400 font-semibold mb-8 italic">“Persegi dan Persegi Panjang dalam Proyek Ruang Kelas Impian”</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-blue-50 p-6 rounded-3xl border-2 border-blue-100">
+                <div class="p-2">
+                    <p class="text-xs text-blue-400 uppercase font-bold tracking-wider">Mata Pelajaran</p>
+                    <p class="font-bold text-blue-700">Matematika</p>
+                </div>
+                <div class="p-2 border-l border-blue-200">
+                    <p class="text-xs text-blue-400 uppercase font-bold tracking-wider">Kelas / Sem</p>
+                    <p class="font-bold text-blue-700">V / Genap</p>
+                </div>
+                <div class="p-2 border-l border-blue-200">
+                    <p class="text-xs text-blue-400 uppercase font-bold tracking-wider">Waktu</p>
+                    <p class="font-bold text-blue-700">2 × 35 Menit</p>
+                </div>
+                <div class="p-2 border-l border-blue-200">
+                    <p class="text-xs text-blue-400 uppercase font-bold tracking-wider">Metode</p>
+                    <p class="font-bold text-blue-700">PjBL + Gen-AI</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 mt-12">
+
+        <!-- A. TUJUAN PEMBELAJARAN -->
+        <section class="card border-yellow-200">
+            <h2 class="text-2xl text-yellow-600 mb-6 flex items-center gap-3">⭐ Tujuan Belajar Hari Ini</h2>
+            <p class="text-lg text-gray-600 mb-6 font-semibold">Setelah belajar hari ini, kamu bisa:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center gap-3 bg-yellow-50 p-4 rounded-2xl border border-yellow-100">
+                    <div class="text-2xl">☑</div>
+                    <span class="text-gray-700 font-medium">Mengenal persegi & persegi panjang</span>
+                </div>
+                <div class="flex items-center gap-3 bg-yellow-50 p-4 rounded-2xl border border-yellow-100">
+                    <div class="text-2xl">☑</div>
+                    <span class="text-gray-700 font-medium">Menyebutkan ciri-cirinya</span>
+                </div>
+                <div class="flex items-center gap-3 bg-yellow-50 p-4 rounded-2xl border border-yellow-100">
+                    <div class="text-2xl">☑</div>
+                    <span class="text-gray-700 font-medium">Menjelaskan dengan bahasamu</span>
+                </div>
+                <div class="flex items-center gap-3 bg-yellow-50 p-4 rounded-2xl border border-yellow-100">
+                    <div class="text-2xl">☑</div>
+                    <span class="text-gray-700 font-medium">Mengenal AI sebagai teman belajar</span>
+                </div>
+                <div class="flex items-center gap-3 bg-yellow-50 p-4 rounded-2xl border border-yellow-100 col-span-1 md:col-span-2">
+                    <div class="text-2xl">☑</div>
+                    <span class="text-gray-700 font-medium text-center">Bekerja sama dalam kelompok kecil dengan hebat!</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- B. KEGIATAN AWAL -->
+        <section class="card border-green-200">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="bg-green-100 p-3 rounded-2xl text-3xl">👀</div>
+                <h2 class="text-2xl text-green-600">Kegiatan Awal – Ayo Mengamati Sekitar Kita!</h2>
+            </div>
+            <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                "Coba lihat benda-benda di sekitarmu, seperti <strong>buku, meja, papan tulis,</strong> dan <strong>lantai</strong>. Apa yang kamu temukan?"
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-3">
+                    <label class="font-bold text-green-700 flex items-center gap-2">
+                        <span class="text-2xl">🟦</span> Benda berbentuk Persegi:
+                    </label>
+                    <textarea class="input-fun" rows="3" placeholder="Sebutkan benda-bendanya..."></textarea>
+                </div>
+                <div class="space-y-3">
+                    <label class="font-bold text-green-700 flex items-center gap-2">
+                        <span class="text-2xl">🟧</span> Benda berbentuk Persegi Panjang:
+                    </label>
+                    <textarea class="input-fun" rows="3" placeholder="Sebutkan benda-bendanya..."></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- C. KEGIATAN INTI 1 -->
+        <section class="card border-orange-200 bg-orange-50/20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-orange-100 p-3 rounded-2xl text-3xl">🏫</div>
+                <h2 class="text-2xl text-orange-600">Tantangan Proyek: Ruang Kelas Impian</h2>
+            </div>
+            
+            <div class="bg-white p-8 rounded-[3rem] border-4 border-orange-300 mb-8 text-center shadow-sm relative">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-orange-400 text-white px-6 py-1 rounded-full text-sm font-bold">PERTANYAAN UTAMA</div>
+                <p class="text-2xl font-bold text-orange-900 leading-tight py-4">
+                    “Bagaimana cara merancang ruang kelas impian dengan menggunakan persegi dan persegi panjang agar kita bisa menghitung luas dan kelilingnya?”
+                </p>
+            </div>
+
+            <p class="text-xl text-orange-800 italic mb-10 text-center px-4">
+                “Bayangkan kamu adalah seorang arsitek. Kamu ingin membuat ruang kelas yang nyaman, rapi, dan menyenangkan untuk belajar!”
+            </p>
+
+            <div class="space-y-6 bg-white p-8 rounded-3xl border border-orange-100">
+                <h4 class="text-orange-600 mb-4 text-center">Diskusi Kelompok 🗣️</h4>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number bg-orange-400">1</div>
+                        <p class="text-lg font-semibold text-gray-700">Bangun datar apa saja yang ada di ruang kelas?</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="step-number bg-orange-400">2</div>
+                        <p class="text-lg font-semibold text-gray-700">Mengapa kita perlu mengetahui luas ruang kelas?</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="step-number bg-orange-400">3</div>
+                        <p class="text-lg font-semibold text-gray-700">Mengapa kita perlu mengetahui keliling ruang kelas?</p>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <label class="block font-bold text-orange-700 mb-2 italic">“Pendapat awal kelompok kami:”</label>
+                    <textarea class="input-fun border-orange-200" rows="4" placeholder="Tulis hasil diskusimu di sini..."></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- D. KEGIATAN INTI 2 -->
+        <section class="card border-blue-200">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-blue-100 p-3 rounded-2xl text-3xl">🤖</div>
+                <h2 class="text-2xl text-blue-600">Belajar Bangun Datar Bersama AI</h2>
+            </div>
+
+            <p class="text-lg mb-8 leading-relaxed">
+                Generative AI adalah teman belajar yang bisa membantu kita memahami pelajaran dengan cepat!
+            </p>
+
+            <div class="flex gap-4 mb-10">
+                <div class="text-5xl">🤖</div>
+                <div class="ai-chat-bubble flex-1 shadow-sm">
+                    <p class="text-sm font-bold text-blue-400 mb-2">Kamu bisa tanya begini ke AI:</p>
+                    <p class="text-lg italic text-blue-800">“Jelaskan ciri-ciri persegi dan persegi panjang dengan bahasa sederhana untuk anak kelas 5.”</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-3">
+                    <label class="font-bold text-blue-700 flex items-center gap-2">
+                        <span class="text-2xl">✨</span> Ciri-ciri Persegi:
+                    </label>
+                    <textarea class="input-fun border-blue-100" rows="5" placeholder="Tulis apa yang AI jelaskan..."></textarea>
+                </div>
+                <div class="space-y-3">
+                    <label class="font-bold text-blue-700 flex items-center gap-2">
+                        <span class="text-2xl">✨</span> Ciri-ciri Persegi Panjang:
+                    </label>
+                    <textarea class="input-fun border-blue-100" rows="5" placeholder="Tulis apa yang AI jelaskan..."></textarea>
+                </div>
+            </div>
+            <p class="mt-6 text-sm text-center text-blue-400 italic">💡 Jangan lupa diskusikan jawaban AI bersama teman dan gurumu ya!</p>
+        </section>
+
+        <!-- E. KEGIATAN INTI 3 -->
+        <section class="card border-purple-200">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-purple-100 p-3 rounded-2xl text-3xl">✏️</div>
+                <h2 class="text-2xl text-purple-600">Merancang Ruang Kelas Impian</h2>
+            </div>
+
+            <div class="space-y-8">
+                <div>
+                    <label class="block font-bold text-purple-700 mb-2">1. Bangun datar apa yang akan kelompokmu gunakan?</label>
+                    <input type="text" class="input-fun border-purple-100" placeholder="Contoh: Persegi Panjang...">
+                </div>
+                <div>
+                    <label class="block font-bold text-purple-700 mb-2">2. Mengapa memilih bangun datar tersebut?</label>
+                    <textarea class="input-fun border-purple-100" rows="2" placeholder="Alasan kelompokmu..."></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-purple-700 mb-6">3. Gambarkan sketsa sederhana ruang kelas impianmu:</label>
+                    
+                    <!-- Contoh Gambar Sketsa -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="illustration-box text-center">
+                            <h5 class="text-purple-600 font-bold mb-3">Contoh 1: Ruang Persegi</h5>
+                            <!-- SVG Ruang Persegi -->
+                            <svg viewBox="0 0 200 200" class="w-full h-40 mx-auto mb-2">
+                                <rect x="30" y="30" width="140" height="140" fill="#f5f3ff" stroke="#a855f7" stroke-width="4" />
+                                <rect x="50" y="50" width="40" height="30" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2" />
+                                <rect x="110" y="50" width="40" height="30" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2" />
+                                <rect x="50" y="110" width="40" height="30" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2" />
+                                <rect x="110" y="110" width="40" height="30" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2" />
+                                <text x="100" y="185" text-anchor="middle" font-size="10" fill="#6b21a8" font-family="Quicksand" font-weight="bold">Sisi = Sisi</text>
+                            </svg>
+                            <p class="text-sm text-gray-500">Semua meja tertata rapi di ruangan sama sisi.</p>
+                        </div>
+                        
+                        <div class="illustration-box text-center">
+                            <h5 class="text-purple-600 font-bold mb-3">Contoh 2: Ruang Persegi Panjang</h5>
+                            <!-- SVG Ruang Persegi Panjang -->
+                            <svg viewBox="0 0 200 200" class="w-full h-40 mx-auto mb-2">
+                                <rect x="20" y="50" width="160" height="100" fill="#f5f3ff" stroke="#a855f7" stroke-width="4" />
+                                <rect x="40" y="70" width="30" height="20" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2" />
+                                <rect x="85" y="70" width="30" height="20" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2" />
+                                <rect x="130" y="70" width="30" height="20" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2" />
+                                <rect x="40" y="110" width="30" height="20" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2" />
+                                <rect x="85" y="110" width="30" height="20" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2" />
+                                <rect x="130" y="110" width="30" height="20" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2" />
+                                <text x="100" y="165" text-anchor="middle" font-size="10" fill="#6b21a8" font-family="Quicksand" font-weight="bold">Panjang x Lebar</text>
+                            </svg>
+                            <p class="text-sm text-gray-500">Ruangan lebih memanjang, meja berderet lebih banyak.</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-80 rounded-[2.5rem] border-4 border-dashed border-purple-200 bg-white sketch-area flex flex-col items-center justify-center text-purple-300">
+                        <span class="text-6xl mb-4">🎨</span>
+                        <p class="font-bold text-gray-400">Gunakan kertas gambar kelompokmu!</p>
+                        <p class="text-sm text-gray-400">Lalu ceritakan sedikit tentang sketsamu di sini:</p>
+                        <textarea class="input-fun w-3/4 mt-4 text-gray-700 text-center" placeholder="Ceritakan ide sketsamu..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- F. PENUTUP -->
+        <section class="card border-pink-200 bg-pink-50/10">
+            <h2 class="text-2xl text-pink-600 mb-8 flex items-center gap-3">🧠 Ayo Kita Refleksi!</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-3xl border border-pink-100">
+                    <label class="block font-bold text-pink-700 mb-2">Apa hal baru yang kamu pelajari hari ini?</label>
+                    <textarea class="input-fun border-pink-50" rows="2"></textarea>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-pink-100">
+                    <label class="block font-bold text-pink-700 mb-2">Apakah Generative AI membantu kamu belajar? Mengapa?</label>
+                    <textarea class="input-fun border-pink-50" rows="2"></textarea>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-pink-100">
+                    <label class="block font-bold text-pink-700 mb-2">Bagian mana yang masih membuatmu bingung?</label>
+                    <textarea class="input-fun border-pink-50" rows="2"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- G. PENILAIAN DIRI -->
+        <section class="card border-cyan-200">
+            <h2 class="text-2xl text-cyan-600 mb-6">✅ Penilaian Diri</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="flex items-center gap-4 p-5 bg-cyan-50 rounded-3xl border-2 border-cyan-100 cursor-pointer hover:bg-cyan-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-cyan-500 border-2 border-cyan-300">
+                    <span class="font-bold text-cyan-800 uppercase text-sm tracking-wide">Saya paham Persegi & Persegi Panjang</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-cyan-50 rounded-3xl border-2 border-cyan-100 cursor-pointer hover:bg-cyan-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-cyan-500 border-2 border-cyan-300">
+                    <span class="font-bold text-cyan-800 uppercase text-sm tracking-wide">Saya berani berdiskusi kelompok</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-cyan-50 rounded-3xl border-2 border-cyan-100 cursor-pointer hover:bg-cyan-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-cyan-500 border-2 border-cyan-300">
+                    <span class="font-bold text-cyan-800 uppercase text-sm tracking-wide">Saya mengenal cara kerja AI</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-cyan-50 rounded-3xl border-2 border-cyan-100 cursor-pointer hover:bg-cyan-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-cyan-500 border-2 border-cyan-300">
+                    <span class="font-bold text-cyan-800 uppercase text-sm tracking-wide">Saya bekerja sama dengan kompak</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Submit Button -->
+        <div class="text-center py-10">
+            <button onclick="window.print()" class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-5 px-16 rounded-[2rem] text-2xl shadow-xl transition-all transform hover:scale-105 active:scale-95">
+                🎉 Simpan & Kirim ke Guru
+            </button>
+            <p class="mt-4 text-gray-400 font-medium italic">Hebat! Kamu sudah menyelesaikan Pertemuan 1!</p>
+        </div>
+
+    </main>
+
+    <!-- Navigation Footer (Simulasi) -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4">
+        <button class="bg-white/80 backdrop-blur-md border border-gray-200 px-6 py-2 rounded-full shadow-lg text-sm font-bold text-gray-500 hover:text-blue-500">
+            ⬅️ Kembali ke Menu
+        </button>
+    </div>
+
+</body>
+</html>
