@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 3 – Menghitung Keliling Bangun Datar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff7ed; /* Warna oranye pastel sangat muda */
+            color: #334155;
+            background-image: radial-gradient(#fed7aa 0.8px, transparent 0.8px);
+            background-size: 24px 24px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Fredoka One', cursive;
+        }
+        .card {
+            background: white;
+            border-radius: 2.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+            margin-bottom: 2.5rem;
+            border: 3px solid #ffedd5;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.1);
+        }
+        .input-fun {
+            border: 3px solid #f1f5f9;
+            border-radius: 1.25rem;
+            padding: 1rem;
+            width: 100%;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            background-color: #fff;
+        }
+        .input-fun:focus {
+            border-color: #fb923c;
+            outline: none;
+            background-color: #fff7ed;
+            box-shadow: 0 0 0 4px rgba(251, 146, 60, 0.2);
+        }
+        .perimeter-line {
+            border: 4px dashed #f97316;
+            animation: dash-animation 2s linear infinite;
+        }
+        @keyframes dash-animation {
+            to { stroke-dashoffset: -20; }
+        }
+        .ai-chat-bubble {
+            background: #f0f9ff;
+            border-radius: 2rem 2rem 2rem 0.5rem;
+            padding: 1.5rem;
+            border: 2px solid #e0f2fe;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="pb-20">
+
+    <!-- Header Section -->
+    <header class="bg-white border-b-8 border-orange-100 pt-12 pb-10 px-6 text-center shadow-sm">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-block bg-orange-100 text-orange-600 px-4 py-1 rounded-full font-bold mb-4">🏠 Modul Digital • Bagian 3</div>
+            <h1 class="text-4xl md:text-5xl text-orange-500 mb-2">📐 Pertemuan 3 – Menghitung Keliling Bangun Datar</h1>
+            <p class="text-xl md:text-2xl text-orange-400 font-semibold mb-8 italic">“Belajar keliling untuk menyempurnakan ruang kelas impian”</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-orange-50 p-6 rounded-3xl border-2 border-orange-100">
+                <div class="p-2">
+                    <p class="text-xs text-orange-400 uppercase font-bold tracking-wider">Mata Pelajaran</p>
+                    <p class="font-bold text-orange-700">Matematika</p>
+                </div>
+                <div class="p-2 border-l border-orange-200">
+                    <p class="text-xs text-orange-400 uppercase font-bold tracking-wider">Materi</p>
+                    <p class="font-bold text-orange-700">Keliling Persegi & PP</p>
+                </div>
+                <div class="p-2 border-l border-orange-200">
+                    <p class="text-xs text-orange-400 uppercase font-bold tracking-wider">Kelas / Sem</p>
+                    <p class="font-bold text-orange-700">V / Genap</p>
+                </div>
+                <div class="p-2 border-l border-orange-200">
+                    <p class="text-xs text-orange-400 uppercase font-bold tracking-wider">Waktu</p>
+                    <p class="font-bold text-orange-700">2 × 35 Menit</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 mt-12">
+
+        <!-- A. TUJUAN PEMBELAJARAN -->
+        <section class="card border-blue-200">
+            <h2 class="text-2xl text-blue-500 mb-6 flex items-center gap-3">⭐ Tujuan Belajar Hari Ini</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl text-blue-400">☑</span>
+                    <span class="text-gray-700 font-medium text-sm">Menjelaskan apa itu keliling dengan bahasamu</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl text-blue-400">☑</span>
+                    <span class="text-gray-700 font-medium text-sm">Menghitung keliling persegi & persegi panjang</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl text-blue-400">☑</span>
+                    <span class="text-gray-700 font-medium text-sm">Membedakan Luas dan Keliling</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                    <span class="text-2xl text-blue-400">☑</span>
+                    <span class="text-gray-700 font-medium text-sm">Menggunakan AI untuk cek cara berpikir</span>
+                </div>
+                <div class="flex items-center gap-3 bg-blue-50 p-4 rounded-2xl border border-blue-100 col-span-1 md:col-span-2 justify-center">
+                    <span class="text-2xl text-blue-400">☑</span>
+                    <span class="text-gray-700 font-medium text-sm">Melengkapi desain proyek ruang kelas impian</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- B. MENGINGAT KEMBALI -->
+        <section class="card border-green-200">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="bg-green-100 p-3 rounded-2xl text-3xl">🔄</div>
+                <h2 class="text-2xl text-green-600">Ayo Mengingat!</h2>
+            </div>
+            <p class="text-gray-600 mb-6 font-medium">Pada pertemuan sebelumnya, kamu sudah hebat belajar tentang <strong>Luas</strong> bangun datar.</p>
+            <div class="space-y-6">
+                <div>
+                    <label class="block font-bold text-gray-700 mb-2">1️⃣ Apa yang dimaksud dengan luas?</label>
+                    <textarea class="input-fun border-green-100 focus:border-green-400" rows="2" placeholder="Luas adalah..."></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-gray-700 mb-2">2️⃣ Tuliskan rumus luas persegi atau persegi panjang!</label>
+                    <input type="text" class="input-fun border-green-100 focus:border-green-400" placeholder="L = ...">
+                </div>
+            </div>
+        </section>
+
+        <!-- C. KEGIATAN INTI 1 -->
+        <section class="card border-orange-200">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-orange-100 p-3 rounded-2xl text-3xl">📏</div>
+                <h2 class="text-2xl text-orange-600">Apa Itu Keliling?</h2>
+            </div>
+            
+            <div class="bg-orange-50 p-8 rounded-[2.5rem] border-2 border-orange-100 mb-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-1">
+                        <p class="text-lg text-orange-900 leading-relaxed font-semibold">
+                            “Keliling adalah <strong>jumlah seluruh sisi</strong> yang mengelilingi suatu bangun datar.”
+                        </p>
+                        <p class="mt-4 text-gray-700">
+                            Bayangkan kamu sedang berjalan di sepanjang pagar sekolah. Jarak yang kamu tempuh dari titik awal sampai kembali lagi itulah yang disebut <strong>Keliling</strong>.
+                        </p>
+                    </div>
+                    <div class="w-full md:w-64 bg-white p-6 rounded-3xl shadow-inner border-2 border-orange-200 relative overflow-hidden">
+                        <!-- Ilustrasi Bangun Datar dengan Garis Keliling -->
+                        <div class="w-full aspect-[4/3] border-4 border-orange-400 rounded-lg flex items-center justify-center relative">
+                            <div class="absolute inset-0 border-4 border-dashed border-orange-600 opacity-50 animate-pulse"></div>
+                            <span class="text-orange-600 font-bold text-xs uppercase">Garis Keliling</span>
+                        </div>
+                        <p class="text-center text-[10px] text-orange-400 mt-2 font-bold uppercase italic">Jarak di pinggir bangun</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-3xl border-2 border-dashed border-orange-200">
+                <h4 class="text-orange-600 mb-4 flex items-center gap-2">🗣️ Diskusi Kelompok:</h4>
+                <p class="font-bold text-gray-700 mb-3">“Mengapa kita perlu mengetahui keliling ruang kelas?”</p>
+                <textarea class="input-fun border-orange-100" rows="3" placeholder="Contoh: Untuk memasang hiasan di pinggir tembok..."></textarea>
+            </div>
+        </section>
+
+        <!-- D. KEGIATAN INTI 2 -->
+        <section class="card border-blue-200">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-blue-100 p-3 rounded-2xl text-3xl">🤖</div>
+                <h2 class="text-2xl text-blue-600">Menghitung Keliling Bersama AI</h2>
+            </div>
+
+            <p class="text-lg mb-8">Gunakan AI untuk membantumu mengecek dan memperbaiki cara berpikir!</p>
+
+            <div class="flex gap-4 mb-10">
+                <div class="text-5xl">🤖</div>
+                <div class="ai-chat-bubble flex-1 shadow-sm border-blue-100 bg-blue-50/50">
+                    <p class="text-sm font-bold text-blue-600 mb-2">Coba tanya ke AI:</p>
+                    <p class="text-lg italic text-blue-800">“Bagaimana cara menghitung keliling persegi dan persegi panjang? Jelaskan dengan langkah sederhana untuk siswa kelas 5.”</p>
+                </div>
+            </div>
+
+            <div class="space-y-8 bg-blue-50 p-8 rounded-[3rem] border border-blue-100">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <label class="font-bold text-blue-700 flex items-center gap-2">
+                            <span class="text-2xl">🟦</span> Keliling Persegi:
+                        </label>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xl font-bold">K =</span>
+                            <input type="text" class="input-fun border-blue-100" placeholder="4 x ...">
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="font-bold text-blue-700 flex items-center gap-2">
+                            <span class="text-2xl">🟧</span> Keliling Persegi Panjang:
+                        </label>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xl font-bold">K =</span>
+                            <input type="text" class="input-fun border-blue-100" placeholder="2 x (p + ...)">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-blue-700 mb-2">Jelaskan dengan bahasamu sendiri perbedaan luas dan keliling:</label>
+                    <textarea class="input-fun border-blue-100" rows="4" placeholder="Luas itu isinya, kalau keliling itu..."></textarea>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-sm text-blue-400 italic">💡 Diskusikan jawabanmu dengan teman dan guru ya!</p>
+        </section>
+
+        <!-- E. KEGIATAN INTI 3 -->
+        <section class="card border-orange-200">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="bg-orange-100 p-3 rounded-2xl text-3xl">🏫</div>
+                <h2 class="text-2xl text-orange-600">Menghitung Keliling Ruang Kelas Impian</h2>
+            </div>
+            
+            <p class="text-lg mb-8 italic text-orange-800">“Mari gunakan ukuran dari rancangan kelompokmu!”</p>
+
+            <div class="bg-orange-50 p-8 rounded-3xl border-2 border-orange-100 mb-8">
+                <h4 class="text-orange-700 mb-6 font-bold flex items-center gap-2">📝 Ukuran Dinding Kelas:</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-2xl border border-orange-100 shadow-sm">
+                        <span class="font-bold text-gray-500">Panjang:</span>
+                        <input type="number" class="w-full border-b-2 border-orange-200 focus:outline-none focus:border-orange-500 text-center font-bold text-xl" placeholder="0">
+                        <span class="font-bold text-gray-400">Meter</span>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-2xl border border-orange-100 shadow-sm">
+                        <span class="font-bold text-gray-500">Lebar:</span>
+                        <input type="number" class="w-full border-b-2 border-orange-200 focus:outline-none focus:border-orange-500 text-center font-bold text-xl" placeholder="0">
+                        <span class="font-bold text-gray-400">Meter</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-3xl border-4 border-orange-300 text-center shadow-md">
+                    <p class="text-orange-400 font-bold mb-2 uppercase tracking-widest text-sm">HITUNG KELILING:</p>
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="text-2xl font-bold text-orange-600">K =</span>
+                        <input type="text" class="w-32 py-2 border-b-4 border-orange-500 text-center text-3xl font-bold focus:outline-none text-orange-700" placeholder="...">
+                        <span class="text-2xl font-bold text-orange-600">Meter</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-[2rem] border-2 border-dashed border-orange-200">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-2xl">🔍</span>
+                    <h4 class="text-orange-600 font-bold">Cek Jawaban dengan Generative AI</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-4 italic">“Tanyakan ke AI apakah hasil perhitungan kelilingmu sudah benar berdasarkan panjang dan lebar tadi.”</p>
+                <textarea class="input-fun border-orange-100 bg-orange-50/10" rows="3" placeholder="Catatan pengecekan AI..."></textarea>
+            </div>
+        </section>
+
+        <!-- F. REFLEKSI -->
+        <section class="card border-indigo-200">
+            <h2 class="text-2xl text-indigo-600 mb-8 flex items-center gap-3">🧠 Refleksi Hari Ini</h2>
+            <div class="space-y-6">
+                <div>
+                    <label class="block font-bold text-indigo-700 mb-2">Apa perbedaan luas dan keliling menurutmu?</label>
+                    <textarea class="input-fun border-indigo-100" rows="2"></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-indigo-700 mb-2">Apakah Generative AI membantumu membedakan luas dan keliling? Mengapa?</label>
+                    <textarea class="input-fun border-indigo-100" rows="2"></textarea>
+                </div>
+                <div>
+                    <label class="block font-bold text-indigo-700 mb-2">Bagian mana yang masih membuatmu bingung?</label>
+                    <textarea class="input-fun border-indigo-100" rows="2"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- G. PENILAIAN DIRI -->
+        <section class="card border-blue-200 shadow-inner">
+            <h2 class="text-2xl text-blue-600 mb-6">✅ Penilaian Diri</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="flex items-center gap-4 p-5 bg-blue-50 rounded-3xl border-2 border-blue-100 cursor-pointer hover:bg-blue-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-blue-500 border-2 border-blue-300">
+                    <span class="font-bold text-blue-800 uppercase text-[10px]">Paham cara hitung keliling</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-blue-50 rounded-3xl border-2 border-blue-100 cursor-pointer hover:bg-blue-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-blue-500 border-2 border-blue-300">
+                    <span class="font-bold text-blue-800 uppercase text-[10px]">Bisa bedakan luas & keliling</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-blue-50 rounded-3xl border-2 border-blue-100 cursor-pointer hover:bg-blue-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-blue-500 border-2 border-blue-300">
+                    <span class="font-bold text-blue-800 uppercase text-[10px]">Gunakan AI dengan bijak</span>
+                </label>
+                <label class="flex items-center gap-4 p-5 bg-blue-50 rounded-3xl border-2 border-blue-100 cursor-pointer hover:bg-blue-100 transition-colors">
+                    <input type="checkbox" class="w-8 h-8 rounded-lg text-blue-500 border-2 border-blue-300">
+                    <span class="font-bold text-blue-800 uppercase text-[10px]">Aktif berdiskusi kelompok</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Submit Button -->
+        <div class="text-center py-10">
+            <button onclick="window.print()" class="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white font-bold py-5 px-16 rounded-[2rem] text-2xl shadow-xl transition-all transform hover:scale-105 active:scale-95">
+                🌟 Selesai Belajar Keliling!
+            </button>
+            <p class="mt-4 text-gray-400 font-medium italic">Sampai jumpa di proyek ruang kelas impian!</p>
+        </div>
+
+    </main>
+
+    <!-- Navigation Footer -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4">
+        <button class="bg-white/90 backdrop-blur-md border border-gray-200 px-6 py-2 rounded-full shadow-lg text-sm font-bold text-gray-500 hover:text-orange-500">
+            ⬅️ Kembali ke Menu
+        </button>
+    </div>
+
+</body>
+</html>
